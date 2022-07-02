@@ -18,7 +18,7 @@ const Nav = () => {
   };
   return (
     <>
-      <nav className="relative px-5 flex justify-between items-center h-20 bg-indigo-800 drop-shadow-md z-10 ">
+      <nav className="sticky top-0 px-5 flex justify-between items-center h-20 bg-indigo-800 drop-shadow-md z-20 ">
         {/* Logo */}
         <div>
           <a href="/" className="text-amber-500 text-2xl font-semibold ">

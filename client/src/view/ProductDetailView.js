@@ -11,6 +11,7 @@ import { addToCart } from "../redux/slice/cartSlice";
 import Loading from "../components/Loading";
 
 const ProductDetailView = () => {
+  const [qty, setQty] = useState(1);
   const dispatch = useDispatch();
 
   const [open, setOpen] = useState(0);
@@ -30,7 +31,7 @@ const ProductDetailView = () => {
     if (product && id !== product._id) {
       dispatch(getProductDetail(id));
     }
-  }, [dispatch, id, product]);
+  }, [dispatch]);
 
   return (
     <div>
@@ -118,7 +119,7 @@ const ProductDetailView = () => {
                 <Fragment>
                   <Accordion open={open === 1} onClick={() => handleOpen(1)}>
                     <AccordionHeader>
-                      <p class="text-base leading-4 text-gray-800 ">
+                      <p className="text-base leading-4 text-gray-800 mt-3">
                         Shipping and Returns
                       </p>
                     </AccordionHeader>
@@ -130,7 +131,7 @@ const ProductDetailView = () => {
                   </Accordion>
                   <Accordion open={open === 2} onClick={() => handleOpen(2)}>
                     <AccordionHeader>
-                      <p class="text-base leading-4 text-gray-800 ">
+                      <p className="text-base leading-4 text-gray-800 mt-3">
                         Contact Us
                       </p>
                     </AccordionHeader>
