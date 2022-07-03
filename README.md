@@ -8,7 +8,7 @@ MERN stack ecommerce shoe website
 
 ## How It's Made:
 
-**Tech used:** Express, MongoDB, Express, React, Nodejs, Tailwind, Redux
+**Tech used:** MongoDB, Express, React, Nodejs, Tailwind, Redux
 
 ## Tasks Solved:
 
