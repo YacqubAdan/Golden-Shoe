@@ -14,9 +14,20 @@ const productDetailSlice = createSlice({
   name: "productDetails",
   initialState: {
     product: {},
+    productSearch: localStorage.getItem("productSearch")
+      ? JSON.parse(localStorage.getItem("productSearch"))
+      : "",
     status: null,
   },
-
+  reducers: {
+    searchProduct(state, action) {
+      state.productSearch = action.payload;
+      localStorage.setItem(
+        "productSearch",
+        JSON.stringify(state.productSearch)
+      );
+    },
+  },
   extraReducers: {
     [getProductDetail.pending]: (state, action) => {
       state.status = "loading";
@@ -31,4 +42,5 @@ const productDetailSlice = createSlice({
   },
 });
 
+export const { searchProduct } = productDetailSlice.actions;
 export default productDetailSlice.reducer;

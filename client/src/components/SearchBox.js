@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
-
+import { useDispatch } from "react-redux";
+import { searchProduct } from "../redux/slice/productDetailSlice";
 const SearchBox = ({ history }) => {
   const [keyword, setKeyword] = useState("");
+
+  const dispatch = useDispatch();
+
   const submitHandler = (e) => {
     e.preventDefault();
-    if (keyword.trim()) {
-      history.push(`/search/${keyword}`);
-    } else {
-      history.push("/");
-    }
   };
 
   return (
@@ -24,7 +23,11 @@ const SearchBox = ({ history }) => {
           onChange={(e) => setKeyword(e.target.value)}
           name="search"
         />
-        <button className="-ml-8 border-6 bg-trasparent" type="submit">
+        <button
+          className="-ml-8 border-6 bg-trasparent"
+          type="submit"
+          onClick={() => dispatch(searchProduct(keyword))}
+        >
           <i className="fa fa-search text-gray-400" />
           <Link to="/search">
             <FontAwesomeIcon icon={faSearch} />
