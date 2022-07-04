@@ -13,6 +13,10 @@ const connectDB = async () => {
     console.error("Mongodb connection fail");
     process.exit(1);
   }
+
+  mongoose.connection.on("connected", () => {
+    console.log("connected");
+  });
 };
 
 module.exports = connectDB;

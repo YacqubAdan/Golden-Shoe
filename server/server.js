@@ -13,6 +13,10 @@ connectDB();
 
 app.use(express.json());
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+
 //API Routes
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
