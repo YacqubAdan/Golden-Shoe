@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import SearchBox from "./SearchBox";
-import { Badge } from "@material-ui/core";
+
 import { Link } from "react-router-dom";
-import { ShoppingCartOutlined } from "@material-ui/icons";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import {
+  faBars,
+  faTimes,
+  faShoppingBag,
+} from "@fortawesome/free-solid-svg-icons";
 
 const Nav = () => {
   const cart = useSelector((state) => state.cart.cartTotalQuantity);
@@ -35,14 +38,10 @@ const Nav = () => {
 
           {/* Cart */}
           <Link to="/cart">
-            <Badge
-              overlap="rectangular"
-              className="text-white"
-              badgeContent={cart}
-              color="secondary"
-            >
-              <ShoppingCartOutlined />
-            </Badge>
+            <FontAwesomeIcon
+              id="toggle-menu-icon transition"
+              icon={faShoppingBag}
+            />
           </Link>
         </div>
 
