@@ -12,10 +12,6 @@ const orderRoute = require("./routes/order");
 
 connectDB();
 
-app.use(express.static(path.join(__dirname, "/client/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build/index.html"));
-});
 app.use(express.json());
 
 //API Routes
@@ -24,5 +20,11 @@ app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
 app.use("/api/order", orderRoute);
 app.use("/api/cart", cartRoute);
+
+const dirname = path.resolve();
+app.use(express.static(path.join(dirname, "/client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(dirname, "client", "build", "index.html"));
+});
 
 app.listen(port, () => console.log(`Server running on port ${port}`));
