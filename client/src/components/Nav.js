@@ -41,7 +41,11 @@ const Nav = () => {
             <FontAwesomeIcon
               id="toggle-menu-icon transition"
               icon={faShoppingBag}
+              className="text-amber-500"
             />
+            <span className="bag-quantity">
+              <span className="text-white ml-1">{cart}</span>
+            </span>
           </Link>
         </div>
 
