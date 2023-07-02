@@ -2,7 +2,7 @@
 
 MERN stack ecommerce shoe website
 
-**Link to project:** https://golden-shoe-mern.herokuapp.com/
+**Link to project:** https://goldenshoe-api.onrender.com/
 
 ![screenshot](image/goldenshoe.png)
 
